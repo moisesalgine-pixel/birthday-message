@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#17131b">
+<title>Happy Birthday, Stranger ♡</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Poppins:wght@300;400;500&display=swap');
+:root{--paper:#f4eee8;--ink:#332b32;--rose:#c49a9c;--muted:#887c83}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:radial-gradient(ellipse at top,#40313d 0%,#201a24 50%,#111016 100%);color:var(--paper);font-family:Poppins,sans-serif;display:flex;align-items:center;justify-content:center;padding:22px;overflow-x:hidden}
+.stars{position:fixed;inset:0;pointer-events:none;background-image:radial-gradient(#fff9 1px,transparent 1px),radial-gradient(#d6b5c9aa 1px,transparent 1px);background-size:73px 73px,113px 113px;background-position:0 0,35px 42px;opacity:.3}
+main{width:min(100%,430px);text-align:center;position:relative;z-index:1}
+.small{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#cdbdc7;margin-bottom:28px}
+h1{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(36px,10vw,52px);line-height:1.02;margin:0 0 12px}
+.subtitle{font-size:12px;color:#c4b5c0;letter-spacing:1px;margin-bottom:36px}
+.envelope-wrap{height:225px;display:flex;align-items:center;justify-content:center;perspective:900px;margin:0 auto 24px}
+.envelope{position:relative;width:280px;height:174px;cursor:pointer;filter:drop-shadow(0 18px 24px #0006);transition:transform .4s}
+.envelope:hover{transform:translateY(-4px)}
+.env-back{position:absolute;inset:0;background:#b78e94;border-radius:4px}
+.letter{position:absolute;left:8%;top:7%;width:84%;height:86%;background:#f6eee7;color:#55444d;padding:18px 8px;transition:transform .9s ease;z-index:2;display:flex;align-items:center;justify-content:center;flex-direction:column}
+.letter span{font-family:'Cormorant Garamond',serif;font-size:25px;font-style:italic}
+.letter small{font-size:9px;letter-spacing:2px;margin-top:8px}
+.flap{position:absolute;inset:0;background:#d0a6a8;clip-path:polygon(0 0,100% 0,50% 58%);transform-origin:top;transition:transform .7s;z-index:4}
+.env-front{position:absolute;inset:0;background:#c49a9c;clip-path:polygon(0 100%,0 0,50% 57%,100% 0,100% 100%);z-index:3}
+.seal{position:absolute;z-index:5;left:50%;top:57%;transform:translate(-50%,-50%);width:39px;height:39px;border-radius:50%;background:#78545f;color:#f8e9e6;display:grid;place-items:center;font-size:18px;box-shadow:0 2px 5px #49303b66;transition:opacity .3s}
+.envelope.open .flap{transform:rotateX(180deg);z-index:1}
+.envelope.open .letter{transform:translateY(-104px);z-index:5}
+.envelope.open .seal{opacity:0}
+.hint{font-size:11px;letter-spacing:1px;color:#c9b9c5;animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.55}}
+.message{display:none;text-align:left;background:#f3ece5;color:#40343d;padding:27px 25px 25px;border-radius:3px;box-shadow:0 15px 45px #0004;animation:appear .8s ease}
+.message.show{display:block}
+@keyframes appear{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+.message .eyebrow{text-align:center;font-size:9px;letter-spacing:3px;color:#9b777f;margin-bottom:16px}
+.message h2{text-align:center;font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:400;margin:0 0 18px}
+.message p{font-family:'Cormorant Garamond',serif;font-size:18px;line-height:1.55;margin:0 0 14px}
+.signoff{text-align:right!important;font-style:italic;margin-top:22px!important}
+.end{text-align:center;font-size:10px;letter-spacing:2px;color:#bbaab6;margin-top:24px}
+.music-btn{margin-top:17px;background:transparent;border:1px solid #9f8799;color:#e9dce5;padding:9px 14px;border-radius:30px;font:11px Poppins;letter-spacing:1px;cursor:pointer}
+.footer{font-size:9px;color:#8e7e8a;margin-top:22px;letter-spacing:1px}
+@media(max-width:360px){.envelope{width:250px;height:155px}.message{padding:22px 19px}.message p{font-size:17px}}
+</style>
+</head>
+<body>
+<div class="stars"></div>
+<main>
+  <div class="small">a little note from the past</div>
+  <h1>Happy Birthday,<br><i>Stranger.</i></h1>
+  <div class="subtitle">Some words I never got to say ♡</div>
+  <div class="envelope-wrap" id="envWrap">
+    <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Open birthday letter">
+      <div class="env-back"></div>
+      <div class="letter"><span>for you, always</span><small>OPEN WHEN YOU'RE READY</small></div>
+      <div class="flap"></div><div class="env-front"></div><div class="seal">♡</div>
+    </div>
+  </div>
+  <div class="hint" id="hint">TAP THE ENVELOPE TO OPEN</div>
+  <section class="message" id="message">
+    <div class="eyebrow">OCTOBER 18 · A LETTER FOR YOU</div>
+    <h2>To my once-favorite person,</h2>
+    <p>Happy birthday, Stranger.</p>
+    <p>I hope life has been gentle with you. I hope you find reasons to smile, people who understand you, and little moments that remind you how beautiful life can still be.</p>
+    <p>It's strange how someone can go from being a part of your everyday life to becoming someone you quietly wish well from a distance. We may not be what we used to be, but that doesn't mean the memories suddenly mean nothing.</p>
+    <p>Thank you for the moments that made me happy, for the memories I will carry softly, and even for the lessons I had to learn after everything changed. A part of me will always be grateful that our paths crossed.</p>
+    <p>There are things I still can't put into perfect words, and maybe I don't need to anymore. Today isn't about asking for anything back. It's simply about wishing you happiness, peace, and all the good things you deserve.</p>
+    <p>I hope this new chapter brings you closer to the person you want to become. Please take care of yourself, even on the days when life feels heavy. I truly hope you're happy, wherever life takes you.</p>
+    <p>Once, you were someone I called home. Now, I am learning to keep the good memories without asking them to become the present again.</p>
+    <p>So, happy birthday. No expectations, no promises—just a sincere wish that life treats you kindly.</p>
+    <p class="signoff">With a quiet kind of care,<br>someone who once knew you by heart. ♡</p>
+  </section>
+  <button class="music-btn" id="musicToggle" type="button">♫ MUSIC: OFF</button>
+  <div class="end">SOME GOODBYES ARE QUIET. SOME WISHES STAY.</div>
+  <div class="footer">made with memories, and a little courage</div>
+</main>
+<video id="music" preload="auto" loop playsinline style="display:none">
+  <source src="music.mp4" type="video/mp4">
+</video>
+<script>
+const envelope=document.getElementById('envelope');
+const message=document.getElementById('message');
+const hint=document.getElementById('hint');
+const music=document.getElementById('music');
+const musicToggle=document.getElementById('musicToggle');
+let opened=false;
+async function startMusic(){
+  try { await music.play(); musicToggle.textContent='♫ MUSIC: ON'; }
+  catch(e){ musicToggle.textContent='♫ TAP TO PLAY MUSIC'; }
+}
+function openLetter(){
+  if(!opened){
+    opened=true;
+    envelope.classList.add('open');
+    hint.textContent='A LETTER, JUST FOR YOU';
+    startMusic();
+    setTimeout(()=>{message.classList.add('show');message.scrollIntoView({behavior:'smooth',block:'nearest'});},650);
+  } else {
+    message.classList.toggle('show');
+  }
+}
+envelope.addEventListener('click',openLetter);
+envelope.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openLetter();}});
+musicToggle.addEventListener('click',async()=>{
+  if(music.paused){await startMusic();}
+  else {music.pause();musicToggle.textContent='♫ MUSIC: OFF';}
+});
+</script>
+</body>
+</html>
